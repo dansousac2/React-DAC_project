@@ -1,38 +1,49 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
+import { wait } from '@testing-library/user-event/dist/utils';
 
 export default class App extends React.Component {
 
   state = {
-    eventName:"Sprint",
-	  date:"12/12/2022",
-	  adress:"Street Albert Einstein",
-    resp:"none"
+    guestName:"",
+	  guestCPF:"",
+	  eventID:"",
+
+    guestName2:"",
+	  guestCPF2:"",
+	  eventID2:""
   }
 
+
+
   post = () => {
-      axios.post("https://localhost:8080/api/event/save",this.state)
-      .then((res) => console.log(res.data))
-      .catch((res) => console.log(res.data))
+      console.log(this.state);
+      this.setState({guestName2:this.state.guestName, guestCPF2: this.state.guestCPF, eventID2: this.state.eventID})
   }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-            <label>Evente Name: </label>
-            <input type="text" value={this.state.eventName} onChange={(e) => {this.setState({eventName: e.target.value})}}/>
+            <label>Guest Name: </label>
+            <input type="text" value={this.state.guestName} onChange={(e) => {this.setState({guestName: e.target.value})}}/>
             <br />
-            <label>Evente Date: </label>
-            <input type="text" value={this.state.date} onChange={(e) => {this.setState({date: e.target.value})}}/>
+            <label>Guest CPF: </label>
+            <input type="text" value={this.state.guestCPF} onChange={(e) => {this.setState({guestCPF: e.target.value})}}/>
             <br />
-            <label>Adress: </label>
-            <input type="text" value={this.state.adress} onChange={(e) => {this.setState({adress: e.target.value})}}/>
+            <label>Event Id: </label>
+            <input type="text" value={this.state.eventID} onChange={(e) => {this.setState({eventID: e.target.value})}}/>
             <br/>
-            <button onClick={this.post}>Create Event</button>
+            <button onClick={this.post}>Create Guest</button>
             <br/>
-            <label>Status da requisição: {this.state.resp}</label>
+            <label>Confirmed/</label>
+            <br/>
+            <label>Guest Name: {this.state.guestName2}</label>
+            <br/>
+            <label>Guest CPF: {this.state.guestCPF2}</label>
+            <br/>
+            <label>Event ID: {this.state.eventID2}</label>
         </header>
       </div>
     );
