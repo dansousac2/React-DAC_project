@@ -18,7 +18,7 @@ export default class App extends React.Component {
 
 
   post = () => {
-      console.log(this.state);
+      console.log("Guest name = " + this.state.guestName + " Guest CPF: " + this.state.guestCPF + " Event ID: " + this.state.eventID);
       this.setState({guestName2:this.state.guestName, guestCPF2: this.state.guestCPF, eventID2: this.state.eventID})
   }
 
