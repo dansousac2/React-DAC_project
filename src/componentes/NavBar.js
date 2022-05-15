@@ -14,8 +14,8 @@ function NavBar (props) {
                     <ul className="navbar-nav">
                         <NavbarItem href="/" label="Create Event" />
                         <NavbarItem href="/" label="Update Event" /> 
-                        <NavbarItem href="/" label="Create Guest" />
-                        <NavbarItem href="/" label="Update Guest" />
+                        <NavbarItem href="/createGuest" label="Create Guest" />
+                        <NavbarItem href="/updateGuest" label="Update Guest" />
                     </ul>
                 </div>
             </div>

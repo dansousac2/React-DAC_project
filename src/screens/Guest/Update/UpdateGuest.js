@@ -55,12 +55,12 @@ export default class UpdateGuest extends React.Component {
 
                     <tbody>
                         <tr class="table-primary">
-                            <th scope="row">Name</th>
-                            <td>{this.state.guestName2}</td>
-                        </tr>
-                        <tr class="table-primary">
                             <th scope="row">CPF</th>
                             <td>{this.state.guestCPF2}</td>
+                        </tr>
+                        <tr class="table-primary">
+                            <th scope="row">Name</th>
+                            <td>{this.state.guestName2}</td>
                         </tr>
                         <tr class="table-primary">
                             <th scope="row">Event ID</th>
