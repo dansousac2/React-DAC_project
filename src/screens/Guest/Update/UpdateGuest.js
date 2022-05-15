@@ -26,7 +26,7 @@ export default class UpdateGuest extends React.Component {
         return (
             <div>
                 <fieldset>
-                    <legend>Update Guest</legend>
+                    <legend><h2>Update Guest</h2></legend>
                     <FormGroup label='CPF' htmlFor='lab02'>
                         <input className="form-control form-control-lg" type="text" placeholder="CPF" id="lab02"
                         onChange={(e) => {this.setState({guestCPF: e.target.value})}}/>

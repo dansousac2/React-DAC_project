@@ -12,8 +12,8 @@ function NavBar (props) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarResponsive"> 
                     <ul className="navbar-nav">
-                        <NavbarItem href="/" label="Create Event" />
-                        <NavbarItem href="/" label="Update Event" /> 
+                        <NavbarItem href="/createEvent" label="Create Event" />
+                        <NavbarItem href="/updateEvent" label="Update Event" /> 
                         <NavbarItem href="/createGuest" label="Create Guest" />
                         <NavbarItem href="/updateGuest" label="Update Guest" />
                     </ul>

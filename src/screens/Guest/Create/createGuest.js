@@ -20,6 +20,7 @@ export default class CreateGuest extends React.PureComponent {
     post = () => {
         console.log("Guest name = " + this.state.guestName + " Guest CPF: " + this.state.guestCPF + " Event ID: " + this.state.eventID);
         this.setState({guestName2:this.state.guestName, guestCPF2: this.state.guestCPF, eventID2: this.state.eventID})
+        alert("Guest created!")
     }
 
     render() {
@@ -45,29 +46,6 @@ export default class CreateGuest extends React.PureComponent {
                 <br/>
                 <br/>
                 <br/>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Field</th>
-                            <th scope="col">Value</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr class="table-primary">
-                            <th scope="row">Name</th>
-                            <td>{this.state.guestName2}</td>
-                        </tr>
-                        <tr class="table-primary">
-                            <th scope="row">CPF</th>
-                            <td>{this.state.guestCPF2}</td>
-                        </tr>
-                        <tr class="table-primary">
-                            <th scope="row">Event ID</th>
-                            <td>{this.state.eventID2}</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         )
     }
