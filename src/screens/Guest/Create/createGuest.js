@@ -1,0 +1,76 @@
+import React from "react";
+import './CreateGuest.css';
+import 'bootswatch/dist/vapor/bootstrap.css';
+
+export default class CreateGuest extends React.PureComponent {
+
+    state = {
+        guestName:"",
+        guestCPF:"",
+        eventID:"",
+
+        guestName2:"",
+        guestCPF2:"",
+        eventID2:""
+    }
+    
+    
+    
+    post = () => {
+        console.log("Guest name = " + this.state.guestName + " Guest CPF: " + this.state.guestCPF + " Event ID: " + this.state.eventID);
+        this.setState({guestName2:this.state.guestName, guestCPF2: this.state.guestCPF, eventID2: this.state.eventID})
+    }
+
+    render() {
+        return (
+            <div>
+                <div class="form-group">
+                <label className="col-form-label col-form-label-lg mt-4" htmlFor="lab01">Guest Name</label>
+                <input className="form-control form-control-lg" type="text" placeholder="name" id="lab01"
+                value={this.state.guestName} onChange={(e) => {this.setState({guestName: e.target.value})}}/>
+                </div>
+
+                <div class="form-group">
+                <label className="col-form-label col-form-label-lg mt-4" htmlFor="lab02">Guest CPF</label>
+                <input className="form-control form-control-lg" type="text" placeholder="CPF" id="lab02"
+                value={this.state.guestCPF} onChange={(e) => {this.setState({guestCPF: e.target.value})}}/>
+                </div>
+
+                <div class="form-group">
+                <label className="col-form-label col-form-label-lg mt-4" htmlFor="lab03">Event ID</label>
+                <input className="form-control form-control-lg" type="text" placeholder="event id" id="lab03"
+                value={this.state.eventID} onChange={(e) => {this.setState({eventID: e.target.value})}}/>
+                </div>
+                <br/>
+                <button type="button" className="btn btn-primary btn-lg" onClick={this.post} >Create Guest</button>
+                <br/>
+                <br/>
+                <br/>
+
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Field</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr class="table-primary">
+                        <th scope="row">Name</th>
+                        <td>{this.state.guestName2}</td>
+                    </tr>
+                    <tr class="table-primary">
+                        <th scope="row">CPF</th>
+                        <td>{this.state.guestCPF2}</td>
+                    </tr>
+                    <tr class="table-primary">
+                        <th scope="row">Event ID</th>
+                        <td>{this.state.eventID2}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+}
