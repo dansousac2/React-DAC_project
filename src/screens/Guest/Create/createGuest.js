@@ -1,6 +1,7 @@
 import React from "react";
 import './CreateGuest.css';
 import 'bootswatch/dist/vapor/bootstrap.css';
+import FormGroup from "../../../componentes/FormGroup";
 
 export default class CreateGuest extends React.PureComponent {
 
@@ -24,50 +25,47 @@ export default class CreateGuest extends React.PureComponent {
     render() {
         return (
             <div>
-                <div class="form-group">
-                <label className="col-form-label col-form-label-lg mt-4" htmlFor="lab01">Guest Name</label>
-                <input className="form-control form-control-lg" type="text" placeholder="name" id="lab01"
-                value={this.state.guestName} onChange={(e) => {this.setState({guestName: e.target.value})}}/>
-                </div>
-
-                <div class="form-group">
-                <label className="col-form-label col-form-label-lg mt-4" htmlFor="lab02">Guest CPF</label>
-                <input className="form-control form-control-lg" type="text" placeholder="CPF" id="lab02"
-                value={this.state.guestCPF} onChange={(e) => {this.setState({guestCPF: e.target.value})}}/>
-                </div>
-
-                <div class="form-group">
-                <label className="col-form-label col-form-label-lg mt-4" htmlFor="lab03">Event ID</label>
-                <input className="form-control form-control-lg" type="text" placeholder="event id" id="lab03"
-                value={this.state.eventID} onChange={(e) => {this.setState({eventID: e.target.value})}}/>
-                </div>
-                <br/>
-                <button type="button" className="btn btn-primary btn-lg" onClick={this.post} >Create Guest</button>
+                <fieldset>
+                    <legend>Create New Guest</legend>
+                    <FormGroup label='Guest Name' htmlFor='lab01'>
+                        <input className="form-control form-control-lg" type="text" placeholder="name" id="lab01"
+                        value={this.state.guestName} onChange={(e) => {this.setState({guestName: e.target.value})}}/>
+                    </FormGroup>
+                    <FormGroup label='CPF' htmlFor='lab02'>
+                        <input className="form-control form-control-lg" type="text" placeholder="CPF" id="lab02"
+                        value={this.state.guestCPF} onChange={(e) => {this.setState({guestCPF: e.target.value})}}/>
+                    </FormGroup>
+                    <FormGroup label='Event ID' htmlFor='lab03'>
+                        <input className="form-control form-control-lg" type="text" placeholder="event id" id="lab03"
+                        value={this.state.eventID} onChange={(e) => {this.setState({eventID: e.target.value})}}/>
+                    </FormGroup>
+                    <br/>
+                    <button type="button" className="btn btn-primary btn-lg" onClick={this.post} >Create Guest</button>
+                </fieldset>
                 <br/>
                 <br/>
                 <br/>
-
                 <table class="table table-hover">
                     <thead>
-                    <tr>
-                        <th scope="col">Field</th>
-                        <th scope="col">Value</th>
-                    </tr>
+                        <tr>
+                            <th scope="col">Field</th>
+                            <th scope="col">Value</th>
+                        </tr>
                     </thead>
 
                     <tbody>
-                    <tr class="table-primary">
-                        <th scope="row">Name</th>
-                        <td>{this.state.guestName2}</td>
-                    </tr>
-                    <tr class="table-primary">
-                        <th scope="row">CPF</th>
-                        <td>{this.state.guestCPF2}</td>
-                    </tr>
-                    <tr class="table-primary">
-                        <th scope="row">Event ID</th>
-                        <td>{this.state.eventID2}</td>
-                    </tr>
+                        <tr class="table-primary">
+                            <th scope="row">Name</th>
+                            <td>{this.state.guestName2}</td>
+                        </tr>
+                        <tr class="table-primary">
+                            <th scope="row">CPF</th>
+                            <td>{this.state.guestCPF2}</td>
+                        </tr>
+                        <tr class="table-primary">
+                            <th scope="row">Event ID</th>
+                            <td>{this.state.eventID2}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
