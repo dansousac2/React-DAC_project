@@ -8,11 +8,7 @@ export default class CreateGuest extends React.PureComponent {
     state = {
         guestName:"",
         guestCPF:"",
-        eventID:"",
-
-        guestName2:"",
-        guestCPF2:"",
-        eventID2:""
+        eventID:""
     }
     
     

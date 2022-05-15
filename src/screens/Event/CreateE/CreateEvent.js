@@ -7,18 +7,13 @@ export default class CreateEvent extends React.Component {
     state = {
         eventName:"",
         date:"",
-        address:"",
-
-        eventName2:"",
-        date2:"",
-        address2:""
+        address:""
     }
     
     
     
     post = () => {
         console.log("Event name = " + this.state.eventName + " Event Date: " + this.state.date + " Event Address: " + this.state.address);
-        this.setState({eventName2:this.state.eventName, date2: this.state.date, address2: this.state.address})
         alert("Event created!")
     }
 
