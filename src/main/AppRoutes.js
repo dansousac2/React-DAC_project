@@ -6,6 +6,7 @@ import UpdateGuest from "../screens/Guest/Update/UpdateGuest";
 import CreateEvent from "../screens/Event/CreateE/CreateEvent";
 import UpdateEvent from "../screens/Event/UpdateE/UpdateEvent";
 import HomePage from "../screens/HomePage/HomePage";
+import Login from "../screens/Login/Login";
 
 function AppRoutes() {
     return (
@@ -14,7 +15,8 @@ function AppRoutes() {
             <Route component = { UpdateGuest } path="/updateGuest" />
             <Route component = { CreateEvent } path="/createEvent" />
             <Route component = { UpdateEvent } path="/updateEvent" />
-            <Route component = { HomePage } path="/" />
+            <Route component = { HomePage } path="/" exact/>
+            <Route component = { Login } path="/login" />
         </BrowserRouter>
     )
 }

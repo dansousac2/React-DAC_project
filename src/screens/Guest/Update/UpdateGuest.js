@@ -47,7 +47,7 @@ export default class UpdateGuest extends React.Component {
                 <br/>
                 <br/>
                 <br/>
-                <table class="table table-hover">
+                <table className="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Field</th>
@@ -56,15 +56,15 @@ export default class UpdateGuest extends React.Component {
                     </thead>
 
                     <tbody>
-                        <tr class="table-primary">
+                        <tr className="table-primary">
                             <th scope="row">CPF</th>
                             <td>{this.state.guestCPF2}</td>
                         </tr>
-                        <tr class="table-primary">
+                        <tr className="table-primary">
                             <th scope="row">Name</th>
                             <td>{this.state.guestName2}</td>
                         </tr>
-                        <tr class="table-primary">
+                        <tr className="table-primary">
                             <th scope="row">Event ID</th>
                             <td>{this.state.eventID2}</td>
                         </tr>

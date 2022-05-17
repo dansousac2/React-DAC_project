@@ -46,7 +46,7 @@ export default class CreateEvent extends React.Component {
                 <br/>
                 <br/>
                 <br/>
-                <table class="table table-hover">
+                <table className="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Field</th>
@@ -55,15 +55,15 @@ export default class CreateEvent extends React.Component {
                     </thead>
 
                     <tbody>
-                        <tr class="table-primary">
+                        <tr className="table-primary">
                             <th scope="row">Event</th>
                             <td>{this.state.eventName2}</td>
                         </tr>
-                        <tr class="table-primary">
+                        <tr className="table-primary">
                             <th scope="row">Date</th>
                             <td>{this.state.date2}</td>
                         </tr>
-                        <tr class="table-primary">
+                        <tr className="table-primary">
                             <th scope="row">Address</th>
                             <td>{this.state.address2}</td>
                         </tr>
