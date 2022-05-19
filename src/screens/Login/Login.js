@@ -12,7 +12,7 @@ class Login extends React.Component {
     }
 
     madeLogin = () => {
-        if(this.state.email != "monteiro@ifpb.edu.br" && this.state.key != "123") {
+        if(this.state.email !== "monteiro@ifpb.edu.br" && this.state.key !== "123") {
             alert("Verifique senha e email passados!")
         } else {
             this.props.history.push('/')
