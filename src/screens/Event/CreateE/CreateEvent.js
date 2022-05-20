@@ -26,7 +26,7 @@ export default class CreateEvent extends React.Component {
             console.log(Response)
         }).catch( error => {
             console.log(error.Response)
-        })
+        });
     }
 
     render() {

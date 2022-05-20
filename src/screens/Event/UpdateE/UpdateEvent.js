@@ -2,23 +2,36 @@ import React from "react";
 import './UpdateEvent.css'
 import 'bootswatch/dist/vapor/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
+import axios from "axios";
 
 export default class CreateEvent extends React.Component {
     state = {
+        id:0,
         eventName:"",
         date:"",
         address:"",
+        budget:"",
 
         eventName2:"",
         date2:"",
-        address2:""
+        address2:"",
+        budget2:""
     }
     
-    
-    
     post = () => {
-        console.log("Event name = " + this.state.eventName + " Event Date: " + this.state.date + " Event Address: " + this.state.address);
-        this.setState({eventName2:this.state.eventName, date2: this.state.date, address2: this.state.address})
+        axios.put(`http://localhost:8080/api/event/update/${this.state.id}`,
+            {
+                eventName: this.state.eventName,
+                date: this.state.date,
+                adress: this.state.address,
+                budget: this.state.budget
+            }
+        ).then( Response => {
+            console.log(Response)
+            this.setState({ eventName2: this.state.eventName, date2: this.state.date, address2: this.state.address, budget2: this.state.budget })
+        }).catch(error => {
+            console.log(error.Response)
+        });
     }
 
     render() {
@@ -27,6 +40,10 @@ export default class CreateEvent extends React.Component {
                 <header className="App-header">
                     <fieldset>
                         <legend><h2>Update Event</h2></legend>
+                        <FormGroup label='Event ID' htmlFor='lab00'>
+                            <input className="form-control form-control-lg" type="text" placeholder="name" id="lab00"
+                            onChange={(e) => {this.setState({id: e.target.value})}}/>
+                        </FormGroup>
                         <FormGroup label='Event Name' htmlFor='lab01'>
                             <input className="form-control form-control-lg" type="text" placeholder="name" id="lab01"
                             onChange={(e) => {this.setState({eventName: e.target.value})}}/>
@@ -39,36 +56,43 @@ export default class CreateEvent extends React.Component {
                             <input className="form-control form-control-lg" type="text" placeholder="address" id="lab03"
                             onChange={(e) => {this.setState({address: e.target.value})}}/>
                         </FormGroup>
+                        <FormGroup label='Event Budget' htmlFor='lab04'>
+                            <input className="form-control form-control-lg" type="text" placeholder="address" id="lab04"
+                            onChange={(e) => {this.setState({budget: e.target.value})}}/>
+                        </FormGroup>
                         <br/>
                         <button type="button" className="btn btn-primary btn-lg" onClick={this.post} >Update</button>
                     </fieldset>
-                </header>  
-                <br/>
-                <br/>
-                <br/>
-                <table className="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Field</th>
-                            <th scope="col">Value</th>
-                        </tr>
-                    </thead>
+                    <br/>
+                    <legend>Confirmation</legend>
+                    <table className="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Field</th>
+                                <th scope="col">Value</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <tr className="table-primary">
-                            <th scope="row">Event</th>
-                            <td>{this.state.eventName2}</td>
-                        </tr>
-                        <tr className="table-primary">
-                            <th scope="row">Date</th>
-                            <td>{this.state.date2}</td>
-                        </tr>
-                        <tr className="table-primary">
-                            <th scope="row">Address</th>
-                            <td>{this.state.address2}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <tbody>
+                            <tr className="table-primary">
+                                <th scope="row">Event</th>
+                                <td>{this.state.eventName2}</td>
+                            </tr>
+                            <tr className="table-primary">
+                                <th scope="row">Date</th>
+                                <td>{this.state.date2}</td>
+                            </tr>
+                            <tr className="table-primary">
+                                <th scope="row">Address</th>
+                                <td>{this.state.address2}</td>
+                            </tr>
+                            <tr className="table-primary">
+                                <th scope="row">Budget</th>
+                                <td>{this.state.budget2}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </header>  
             </div>
         )
     }
