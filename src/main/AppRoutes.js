@@ -3,18 +3,25 @@ import {Route, BrowserRouter} from 'react-router-dom';
 
 import CreateGuest from "../screens/Guest/Create/CreateGuest";
 import UpdateGuest from "../screens/Guest/Update/UpdateGuest";
+import DeleteGuest from "../screens/Guest/Delete/DeleteGuest";
+import ViewGuests from "../screens/Guest/ListAllGests/ViewGuests";
+
 import CreateEvent from "../screens/Event/CreateE/CreateEvent";
 import UpdateEvent from "../screens/Event/UpdateE/UpdateEvent";
 import DeleteEvent from "../screens/Event/DeleteE/DeleteEvent";
 import ViewEvents from "../screens/Event/ListAllEvents/ViewEvents";
+
 import HomePage from "../screens/HomePage/HomePage";
 import Login from "../screens/Login/Login";
+
 
 function AppRoutes() {
     return (
         <BrowserRouter>
             <Route component = { CreateGuest } path="/createGuest" />
-            <Route component = { UpdateGuest } path="/updateGuest" />
+            <Route component = { UpdateGuest } path="/updateGuest/:id" />
+            <Route component = { DeleteGuest } path="/deleteGuest" />
+            <Route component = { ViewGuests } path="/listGuests" />
 
             <Route component = { CreateEvent } path="/createEvent" />
             <Route component = { UpdateEvent } path="/updateEvent/:id" />
