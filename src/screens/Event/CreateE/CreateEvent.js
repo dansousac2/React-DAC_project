@@ -12,8 +12,6 @@ export default class CreateEvent extends React.Component {
         budget:""
     }
     
-    
-    
     post = () => {
         axios.post( 'http://localhost:8080/api/event/save',
             {

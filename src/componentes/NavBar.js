@@ -13,8 +13,12 @@ function NavBar (props) {
                 <div className="collapse navbar-collapse" id="navbarResponsive"> 
                     <ul className="navbar-nav">
                         <NavbarItem href="/login" label="Login" />
+
+                        <NavbarItem href="/listEvents" label="Events" />
                         <NavbarItem href="/createEvent" label="Create Event" />
-                        <NavbarItem href="/updateEvent" label="Update Event" /> 
+                        <NavbarItem href="/updateEvent" label="Update Event" />
+                        <NavbarItem href="/deleteEvent" label="Delete Event" />
+
                         <NavbarItem href="/createGuest" label="Create Guest" />
                         <NavbarItem href="/updateGuest" label="Update Guest" />
                     </ul>

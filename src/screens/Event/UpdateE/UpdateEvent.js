@@ -18,7 +18,7 @@ export default class CreateEvent extends React.Component {
         budget2:""
     }
     
-    post = () => {
+    put = () => {
         axios.put(`http://localhost:8080/api/event/update/${this.state.id}`,
             {
                 eventName: this.state.eventName,
@@ -41,7 +41,7 @@ export default class CreateEvent extends React.Component {
                     <fieldset>
                         <legend><h2>Update Event</h2></legend>
                         <FormGroup label='Event ID' htmlFor='lab00'>
-                            <input className="form-control form-control-lg" type="text" placeholder="name" id="lab00"
+                            <input className="form-control form-control-lg" type="text" placeholder="ID" id="lab00"
                             onChange={(e) => {this.setState({id: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Event Name' htmlFor='lab01'>
@@ -57,14 +57,14 @@ export default class CreateEvent extends React.Component {
                             onChange={(e) => {this.setState({address: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Event Budget' htmlFor='lab04'>
-                            <input className="form-control form-control-lg" type="text" placeholder="address" id="lab04"
+                            <input className="form-control form-control-lg" type="text" placeholder="budget" id="lab04"
                             onChange={(e) => {this.setState({budget: e.target.value})}}/>
                         </FormGroup>
                         <br/>
-                        <button type="button" className="btn btn-primary btn-lg" onClick={this.post} >Update</button>
+                        <button type="button" className="btn btn-primary btn-lg" onClick={this.put} >Update</button>
                     </fieldset>
                     <br/>
-                    <legend>Confirmation</legend>
+                    <legend className="legConfirmation">Confirmation</legend>
                     <table className="table table-hover">
                         <thead>
                             <tr>
