@@ -19,10 +19,10 @@ export default class UpdateGuest extends React.Component {
     
     
     post = () => {
-        axios.post('http://localhost:8080/api/guest/update',
+        axios.put('http://localhost:8080/api/guest/update',
             {
-                cpf:this.state.cpf,
-                name:this.state.name,
+                cpf:this.state.guestCPF,
+                name:this.state.guestName,
                 event:{
                     id:this.state.eventID
                 }
