@@ -2,6 +2,7 @@ import React from "react";
 import './CreateGuest.css';
 import 'bootswatch/dist/vapor/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
+import axios from "axios";
 
 export default class CreateGuest extends React.PureComponent {
 
@@ -14,9 +15,18 @@ export default class CreateGuest extends React.PureComponent {
     
     
     post = () => {
-        console.log("Guest name = " + this.state.guestName + " Guest CPF: " + this.state.guestCPF + " Event ID: " + this.state.eventID);
-        this.setState({guestName2:this.state.guestName, guestCPF2: this.state.guestCPF, eventID2: this.state.eventID})
-        alert("Guest created!")
+        axios.post('http://localhost:8080/api/guest/save',
+        {
+            cpf:this.state.guestCPF,
+            name:this.state.guestName,
+            event:{
+                id:this.state.eventID
+            }
+        }).then( Response => {
+            console.log(Response)
+        }).catch( error => [
+            console.log(error.Response)
+        ]);
     }
 
     render() {

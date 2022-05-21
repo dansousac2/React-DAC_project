@@ -2,13 +2,14 @@ import React from "react";
 import './UpdateGuest.css';
 import 'bootswatch/dist/vapor/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
+import axios from "axios";
 
 export default class UpdateGuest extends React.Component {
 
     state = {
         guestName:"",
         guestCPF:"",
-        eventID:"",
+        eventID:0,
 
         guestName2:"",
         guestCPF2:"",
@@ -18,8 +19,20 @@ export default class UpdateGuest extends React.Component {
     
     
     post = () => {
-        console.log("Guest name = " + this.state.guestName + " Guest CPF: " + this.state.guestCPF + " Event ID: " + this.state.eventID);
-        this.setState({guestName2:this.state.guestName, guestCPF2: this.state.guestCPF, eventID2: this.state.eventID})
+        axios.post('http://localhost:8080/api/guest/update',
+            {
+                cpf:this.state.cpf,
+                name:this.state.name,
+                event:{
+                    id:this.state.eventID
+                }
+            }
+        ).then( Response => {
+            console.log(Response)
+            this.setState({guestName2:this.state.guestName, guestCPF2: this.state.guestCPF, eventID2: this.state.eventID})
+        }).catch(error => {
+            console.log(error.Response)
+        });
     }
 
     render() {
