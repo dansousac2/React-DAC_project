@@ -46,7 +46,7 @@ export default class CreateEvent extends React.Component {
                             onChange={(e) => {this.setState({address: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Event Budget' htmlFor='lab04'>
-                            <input className="form-control form-control-lg" type="text" placeholder="address" id="lab04"
+                            <input className="form-control form-control-lg" type="text" placeholder="budget" id="lab04"
                             onChange={(e) => {this.setState({budget: e.target.value})}}/>
                         </FormGroup>
                         <br/>
