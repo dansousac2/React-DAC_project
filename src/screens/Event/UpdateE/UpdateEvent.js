@@ -15,7 +15,8 @@ export default class CreateEvent extends React.Component {
     findById = (eventId) => {
         axios.get(`http://localhost:8080/api/event/${eventId}`
         ).then( Response => {
-            console.log(Response.data);
+            console.log(Response);
+            
             const event = Response.data;
 
             const id = event.id;

@@ -16,7 +16,6 @@ function NavBar (props) {
 
                         <NavbarItem href="/listEvents" label="Events" />
                         <NavbarItem href="/createEvent" label="Create Event" />
-                        <NavbarItem href="/updateEvent/:id" label="Update Event" />
                         <NavbarItem href="/deleteEvent" label="Delete Event" />
 
                         <NavbarItem href="/listGuests" label="Guests" />
