@@ -5,6 +5,31 @@ import FormGroup from "../../../componentes/FormGroup";
 import axios from "axios";
 
 export default class CreateEvent extends React.Component {
+
+    componentDidMount() {
+        const params = this.props.match.params;
+        const id = params.id;
+        this.findById(id);
+    }
+
+    findById = (eventId) => {
+        axios.get(`http://localhost:8080/api/event/${eventId}`
+        ).then( Response => {
+            console.log(Response.data);
+            const event = Response.data;
+
+            const id = event.id;
+            const name = event.eventName;
+            const date = event.date;
+            const address = event.adress;
+            const budget = event.budget;
+
+            this.setState({id: id, eventName: name, date: date, address: address, budget: budget});
+        }).catch(error => {
+            console.log(error.Response)
+        });
+    }
+
     state = {
         id:0,
         eventName:"",
@@ -41,23 +66,23 @@ export default class CreateEvent extends React.Component {
                     <fieldset>
                         <legend><h2>Update Event</h2></legend>
                         <FormGroup label='Event ID' htmlFor='lab00'>
-                            <input className="form-control form-control-lg" type="text" placeholder="ID" id="lab00"
+                            <input className="form-control form-control-lg" type="text" placeholder="ID" id="lab00" value={this.state.id}
                             onChange={(e) => {this.setState({id: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Event Name' htmlFor='lab01'>
-                            <input className="form-control form-control-lg" type="text" placeholder="name" id="lab01"
+                            <input className="form-control form-control-lg" type="text" placeholder="name" id="lab01" value={this.state.eventName}
                             onChange={(e) => {this.setState({eventName: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Event Date' htmlFor='lab02'>
-                            <input className="form-control form-control-lg" type="text" placeholder="date" id="lab02"
+                            <input className="form-control form-control-lg" type="text" placeholder="date" id="lab02" value={this.state.date}
                             onChange={(e) => {this.setState({date: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Event Address' htmlFor='lab03'>
-                            <input className="form-control form-control-lg" type="text" placeholder="address" id="lab03"
+                            <input className="form-control form-control-lg" type="text" placeholder="address" id="lab03" value={this.state.address}
                             onChange={(e) => {this.setState({address: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Event Budget' htmlFor='lab04'>
-                            <input className="form-control form-control-lg" type="text" placeholder="budget" id="lab04"
+                            <input className="form-control form-control-lg" type="text" placeholder="budget" id="lab04" value={this.state.budget}
                             onChange={(e) => {this.setState({budget: e.target.value})}}/>
                         </FormGroup>
                         <br/>

@@ -12,10 +12,10 @@ export default props => {
                 <td>{event.budget}</td>
                 <td>
                     <button type="button" title="Edite" className="btn btn-warning"
-                        onClick={e => props.edit(event.id)}>
+                        onClick={e => props.edit(event.id)}>Ed
                     </button>
-                    <button type="button" title="Exclude" className="btn btn-danger"
-                        onClick={e => props.delete(event.id)}>
+                    <button type="button" title="Delete" className="btn btn-danger"
+                        onClick={e => props.delete(event.id)}>Del
                     </button>
                 </td>
             </tr>

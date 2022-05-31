@@ -5,6 +5,11 @@ import axios from "axios";
 import EventsTable from "../../../componentes/EventsTable";
 
 class ViewEvents extends React.Component {
+
+    componentDidMount() {
+        this.find();
+    }
+    
     state = {
         events:[]
     }
@@ -38,10 +43,6 @@ class ViewEvents extends React.Component {
             <div>
                 <header className="App-header">
                     <fieldset>
-                        <br/>
-                        <button type="button" className="btn btn-primary btn-lg" onClick={this.find} >Find All Created Events</button>
-                        <br/>
-                        <br/>
                         <EventsTable events={this.state.events} delete={this.delete} edit={this.edit} />
                     </fieldset>
                 </header>
